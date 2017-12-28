@@ -21,8 +21,8 @@ $section = 'home';
 require(CLIENTINC_DIR.'header.inc.php');
 ?>
 
-	<!-- Quienes somos -->
-    <div class="row clearfix">
+<!-- Quienes somos -->
+<div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
@@ -43,8 +43,8 @@ require(CLIENTINC_DIR.'header.inc.php');
             </div>
         </div>
      </div>
-    </div>
-    <!-- #END# Quienes somos -->
+</div>
+<!-- #END# Quienes somos -->
 <!-- Check Enable-->
         <?php
             $BUTTONS = isset($BUTTONS) ? $BUTTONS : true;
