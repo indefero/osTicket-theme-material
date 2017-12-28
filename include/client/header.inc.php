@@ -78,8 +78,7 @@ if ($lang) {
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/redactor.min.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/redactor-plugins.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/redactor-osticket.js"></script>
-    <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/select2.min.js"></script>-->
-
+    <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/select2.min.js"></script>
     <!-- Bootstrap Core Js -->
     <script src="<?php echo ROOT_PATH; ?>plugins/bootstrap/js/bootstrap.js"></script>
 
@@ -118,10 +117,10 @@ if ($lang) {
             $qs['lang'] = $L; ?>
         <link rel="alternate" href="//<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>?<?php
             echo http_build_query($qs); ?>" hreflang="<?php echo $L; ?>" />
-<?php
+    <?php
         } ?>
         <link rel="alternate" href="//<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"
-            hreflang="x-default";
+            hreflang="x-default";>
 <?php
     } 
     ?>
@@ -202,7 +201,7 @@ if ($lang) {
 								if (($all_langs = Internationalization::getConfiguredSystemLanguages()) && (($cuenta= count($all_langs)) > 1)) { ?>
 									<li class="dropdown">
 										<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            				<i class="material-icons">flag</i>
+                            				<i class="material-icons">g_translate</i>
 											<span class="label-count"><?php echo $cuenta ?></span>
 										</a>
 										<ul class="dropdown-menu">
