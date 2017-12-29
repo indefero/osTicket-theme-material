@@ -21,8 +21,9 @@ $(document).ready(function(){
 	//$("input").each(function () {
     //$(this).addClass("form-control");
 	//$(':input,:checkbox,:radio').addClass('YOUR_CLASSNAME');
-	$('input[type=text]').addClass('form-control');
-	$('select').addClass('form-control');
+    $('input[type=text]').addClass('form-control');
+    $('input[type=email]').addClass('form-control');
+    $('input[type=tel]').addClass('form-control');
 });
 /*$("[data-toggle=popover]").popover({
     html: true, 
@@ -31,73 +32,67 @@ $(document).ready(function(){
         }
 });*/
 </script>
- <div class="panel panel-default">
-    <div class="panel-heading">
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <?php print ($form instanceof DynamicFormEntry) 
             ? $form->getForm()->getMedia() : $form->getMedia(); ?>
-
-	<div class="form-header" style="margin-bottom:0.5em">
-        <h3 class="panel-title"><?php echo Format::htmlchars($form->getTitle()); ?></h3>
-        <em><?php echo Format::display($form->getInstructions()); ?></em>
-	</div>
+        <h2 class="card-inside-title">
+            <?php echo Format::htmlchars($form->getTitle()); ?>
+        </h2>
+        <em>
+            <?php echo Format::display($form->getInstructions()); ?>
+        </em><br>
     </div>
-    <div class="panel-body">
-    <?php
-	if ($form->getTitle() == 'Additional Details' || $form->getTitle() == 'Contact Details'){
-		echo '<div class="form">';
-	} else {
-		echo '<div class="form-inline">';
-	}
-	
-    // Form fields, each with corresponding errors follows. Fields marked
-    // 'private' are not included in the output for clients
-    global $thisclient;
-    foreach ($form->getFields() as $field) {
-        if (isset($options['mode']) && $options['mode'] == 'create') {
-            if (!$field->isVisibleToUsers() && !$field->isRequiredForUsers())
-                continue;
-        }
-        elseif (!$field->isVisibleToUsers() && !$field->isEditableToUsers()) {
-            continue;
-        }
-        ?>
-		
-        <!--<div class="form-group col-md-12"> -->
-        <div class="form-group"> 
-		    <!--<button type="button" class="btn btn-primary" data-toggle="popover" title="Popover title" data-content="Default popover">Popover</button>-->
-            <?php if (!$field->isBlockLevel()) { ?>
-                <div class="field-label"><label data-toggle="popover" title="<?php if ($field->get('hint')) echo Format::htmlchars($field->getLocal('label')); ?>" data-content="<?php echo ($field->getLocal('hint'))?>" for="<?php echo $field->getFormName(); ?>"><span class="<?php
-                    if ($field->isRequiredForUsers()) echo 'required'; ?>">
-                <?php echo Format::htmlchars($field->getLocal('label')); ?>
-            <?php if ($field->isRequiredForUsers()) { ?>
-            <span class="error">*</span>
-            <?php }
-            ?>
-			</label></div>
-			</span><?php
-                //if ($field->get('hint')) { ?>
-                    <!--em style="color:gray;display:inline-block"><?php
-                        //echo Format::viewableImages($field->getLocal('hint')); ?></em>-->
+    <?php // Form fields, each with corresponding errors follows. Fields marked
+        // 'private' are not included in the output for clients
+        global $thisclient;
+        foreach ($form->getFields() as $field) {?>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <?php 
+                        if ($form->getTitle() == 'Additional Details' || $form->getTitle() == 'Contact Details'){
+                            echo '<div class="form">';
+                        } else {
+                            echo '<div class="form-line">';
+                        }
+                            if (isset($options['mode']) && $options['mode'] == 'create') {
+                                if (!$field->isVisibleToUsers() && !$field->isRequiredForUsers())
+                                    continue;
+                            }
+                            elseif (!$field->isVisibleToUsers() && !$field->isEditableToUsers()) {
+                                continue;
+                            }?>
+                        <?php if (!$field->isBlockLevel()) { ?>
+                            <label data-toggle="popover" title="<?php if ($field->get('hint')) echo Format::htmlchars($field->getLocal('label')); ?>" data-content="<?php echo ($field->getLocal('hint'))?>" for="<?php echo $field->getFormName(); ?>">
+                                <span class="<?php
+                                    if ($field->isRequiredForUsers()) echo 'required'; ?>">
+                                    <?php echo Format::htmlchars($field->getLocal('label')); ?>
+                                    <?php if ($field->isRequiredForUsers()) { ?>
+                                        <span class="error">*</span>
+                                    <?php }?>
+                                </span>
+			                </label>
+                            <br>
+                            <?php
+                            //if ($field->get('hint')) { ?>
+                                <!--em style="color:gray;display:inline-block"><?php
+                                //echo Format::viewableImages($field->getLocal('hint')); ?></em>-->
 						
-                <?php
-               // } ?>
-            <?php
-            }
-			//Renders Forms
-			?><div class="field-form"><?php
-            $field->render(array('client'=>true));?>
-			</div><?php
-            ?></label><?php
-            foreach ($field->errors() as $e) { ?>
-                <div class="alert-danger"><?php echo $e; ?></div>
-            <?php }
-            $field->renderExtras(array('client'=>true));
-            ?>
-            
-        </div>
-        <?php
-    }
-?>
-        </div>
-    </div>
+                                <?php   // } ?>
+                        <?php   }   
+                        //Renders Forms?>
+                        <?php
+                            $field->render(array('client'=>true));?>
+                        </div>
+                    </div>
+                    <?php $field->renderExtras(array('client'=>true)); ?>
+                    <?php
+                            foreach ($field->errors() as $e) { ?>
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <?php echo $e; ?>
+                                </div>
+                            <?php } ?>
+                </div>
+        <?php } ?>
 </div>

@@ -88,7 +88,7 @@ else {
           <td><?php echo __('Phone Number');?>:</td>
           <td>
             <input type="tel" size="18" name="phone" class="auto phone"
-              value="<?php echo Format::htmlchars($staff->phone); ?>" />
+              value="<?php echo Format::htmlchars($staff->phone); ?>" /><br>
             <?php echo __('Ext');?>
             <input type="text" size="5" name="phone_ext"
               value="<?php echo Format::htmlchars($staff->phone_ext); ?>">

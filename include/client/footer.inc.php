@@ -17,7 +17,29 @@
             </div>
         </div>
     </div>
-    <!-- #END# Acerca de -->				
+    <!-- #END# Acerca de -->
+    
+    <!-- Bootstrap Core Js -->
+    <script src="<?php echo ROOT_PATH; ?>plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="<?php echo ROOT_PATH; ?>plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="<?php echo ROOT_PATH; ?>plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Bootstrap Notify Plugin Js -->
+    <script src="<?php echo ROOT_PATH; ?>plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="<?php echo ROOT_PATH; ?>plugins/node-waves/waves.js"></script>
+
+    <!-- Custom Js -->
+    <script src="<?php echo ROOT_PATH; ?>js/admin.js"></script>
+    <script src="<?php echo ROOT_PATH; ?>js/script.js"></script>
+
+    <!-- Demo Js -->
+    <script src="<?php echo ROOT_PATH; ?>js/demo.js"></script>				
 <?php
 if (($lang = Internationalization::getCurrentLanguage()) && $lang != 'en_US') { ?>
     <script type="text/javascript" src="ajax.php/i18n/<?php
@@ -31,7 +53,7 @@ if (($lang = Internationalization::getCurrentLanguage()) && $lang != 'en_US') { 
     ?>);
 </script>
 
-<!-- Jquery Core Js -->
+    <!-- Jquery Core Js -->
     <!--<script src="<?php echo ROOT_PATH; ?>plugins/jquery/jquery.min.js"></script>-->
 
     <!-- Bootstrap core JavaScript

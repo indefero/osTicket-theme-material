@@ -52,13 +52,22 @@ if ($lang) {
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/flags.css">
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/rtl.css"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/select2.min.css">
+    <!--<link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/select2.min.css">-->
 	<!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Waves Effect Css -->
-	<link href="<?php echo ROOT_PATH; ?>plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="<?php echo ROOT_PATH; ?>plugins/node-waves/waves.css" rel="stylesheet" />
+    
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="<?php echo ROOT_PATH; ?>plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="<?php echo ROOT_PATH; ?>plugins/waitme/waitMe.css" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <link href="<?php echo ROOT_PATH; ?>plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
     <!-- Animation Css -->
     <link href="<?php echo ROOT_PATH; ?>plugins/animate-css/animate.css" rel="stylesheet" />
@@ -69,7 +78,9 @@ if ($lang) {
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo ROOT_PATH; ?>css/themes/all-themes.css" rel="stylesheet" />
 
-    <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-1.11.2.min.js"></script>
+    <!-- Jquery Core Js -->
+    <script src="<?php echo ROOT_PATH; ?>plugins/jquery/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-1.11.2.min.js"></script>-->
 	<!--<script type="text/javascript" src="<?php echo ASSETS_PATH; ?>js/bootstrap.min.js"></script>-->
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="<?php echo ROOT_PATH; ?>js/osticket.js"></script>
@@ -78,28 +89,7 @@ if ($lang) {
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/redactor.min.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/redactor-plugins.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/redactor-osticket.js"></script>
-    <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/select2.min.js"></script>
-    <!-- Bootstrap Core Js -->
-    <script src="<?php echo ROOT_PATH; ?>plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Select Plugin Js -->
-    <script src="<?php echo ROOT_PATH; ?>plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="<?php echo ROOT_PATH; ?>plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-    <!-- Bootstrap Notify Plugin Js -->
-    <script src="<?php echo ROOT_PATH; ?>plugins/bootstrap-notify/bootstrap-notify.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="<?php echo ROOT_PATH; ?>plugins/node-waves/waves.js"></script>
-
-    <!-- Custom Js -->
-    <script src="<?php echo ROOT_PATH; ?>js/admin.js"></script>
-    <script src="<?php echo ROOT_PATH; ?>js/script.js"></script>
-
-    <!-- Demo Js -->
-    <script src="<?php echo ROOT_PATH; ?>js/demo.js"></script>
+    <!--<script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/select2.min.js"></script>-->
     <?php
     if($ost && ($headers=$ost->getExtraHeaders())) {
         echo "\n\t".implode("\n\t", $headers)."\n";

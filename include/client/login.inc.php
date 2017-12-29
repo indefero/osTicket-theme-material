@@ -20,8 +20,10 @@ if ($content) {
             <div class="header">
                 <h1>
 					<?php echo Format::display($title); ?><br>
-					<small><?php echo Format::display($body); ?></small>
                 </h1>
+				<h2>
+					<small><?php echo Format::display($body); ?></small>
+				</h2>
 			</div>
 			<div class="body">
 				<div class="row">
