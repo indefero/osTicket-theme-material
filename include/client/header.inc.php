@@ -141,7 +141,7 @@ if ($lang) {
         <div class="search-icon">
             <i class="material-icons">search</i>
         </div>
-        <form method="get" action="kb/faq.php" class="search-form">
+        <form method="get" action="<?php echo ROOT_PATH; ?>kb/faq.php" class="search-form">
             <input type="text" name="q" placeholder="Buscar en nuestra base de datos...">
         </form>
         <div class="close-search">
@@ -233,7 +233,7 @@ if ($lang) {
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="images/home-logo.png" width="48" height="48" alt="User" />
+                <img src="<?php echo ROOT_PATH; ?>images/home-logo.png" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RedHawk Lab</div>

@@ -88,7 +88,11 @@ require(CLIENTINC_DIR.'header.inc.php');
             <?php } 
             if ($BUTTONS) { ?>
             <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <?php if ($cfg && !$cfg->isKnowledgebaseEnabled()) { ?>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <?php }else { ?>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <?php } ?>
                     <div class="card">
                         <div class="header bg-red">
                             <h2>
@@ -140,41 +144,53 @@ require(CLIENTINC_DIR.'header.inc.php');
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <h1>Featured Knowledge Base Articles</h1>
-                    <?php
-                    foreach ($cats as $C) { ?>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                                    &nbsp;<?php echo $C->getName(); ?>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <?php foreach ($C->getTopArticles() as $F) { ?>
-                                        <div class="col-sm-6">
+                    <div class="header">
+                        <h2>
+                            Preguntas frecuentes
+                            <small>Antes de crear un ticket fijate en nuestro kb haber si ya se encuentra resuelta tu duda.</small>
+                        </h2> 
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                        <?php
+                            $valor=0;
+                            foreach ($cats as $C) { 
+                                $valor=$valor+1; 
+                                $question_val=0;?>
+                                <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                                    <h3>
+                                        <i class="material-icons">folder_open</i>
+                                        &nbsp;<?php echo $C->getName(); ?>
+                                    </h3>
+                                    <div class="panel-group" id="cats_<?php echo $valor; ?>" role="tablist" aria-multiselectable="true">
+                                        <?php foreach ($C->getTopArticles() as $F) { 
+                                            $question_val=$question_val+1; ?>
                                             <div class="panel panel-primary">
-                                                <div class="panel-heading">
-                                                <h3 class="panel-title">
-                                                    <a href="<?php echo ROOT_PATH; ?>kb/faq.php?id=<?php echo $F->getId(); ?>">
-                                                    <?php echo $F->getQuestion(); ?>
-                                                    </a>
-                                                </h3>
+                                                <div class="panel-heading" role="tab" id="article_<?php echo $valor; ?>_<?php echo $question_val; ?>">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#cats_<?php echo $valor; ?>" href="#question_<?php echo $valor; ?>_<?php echo $question_val; ?>" aria-expanded="false" aria-controls="question_<?php echo $valor; ?>_<?php echo $question_val; ?>">
+                                                            <i class="material-icons">question_answer</i>&nbsp;<?php echo $F->getQuestion(); ?>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="question_<?php echo $valor; ?>_<?php echo $question_val; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="article_<?php echo $valor; ?>_<?php echo $question_val; ?>">
+                                                    <div class="panel-body">
+                                                        <?php echo $F->getTeaser(); ?>
+                                                        <a href="<?php echo ROOT_PATH; ?>kb/faq.php?id=<?php echo $F->getId(); ?>">
+                                                            Leer mas...
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="panel-body">
-                                                <?php echo $F->getTeaser(); ?>
-                                            </div>
-                                        </div>
+                                        <?php } ?>
                                     </div>
-                                <?php } ?>
-                            </div>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
-                    <?php } ?>
-                </div> 
+                </div>
             </div>
         </div>
-    <?php }?>
+<?php }?>
 <!-- #END# Categorias -->
 <?php require(CLIENTINC_DIR.'footer.inc.php'); ?>
