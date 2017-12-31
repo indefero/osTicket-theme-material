@@ -291,7 +291,7 @@ $(function() {
         if (reset) {
             reset.click(function() {
                 if (el.hasClass('draft'))
-                    el.redactor('deleteDraft');
+                    el.redactor('draft.deleteDraft');
                 else
                     el.redactor('set', '', false, false);
             });
