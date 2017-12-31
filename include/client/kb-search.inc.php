@@ -1,29 +1,35 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-8">
-    <h1><?php echo __('Frequently Asked Questions');?></h1>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><?php echo __('Search Results'); ?></h3>
+<div class="block-header">
+  <?php echo __('Frequently Asked Questions');?>
+</div>
+<div class="row clearfix">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header">
+        <h3><?php echo __('Search Results'); ?></h3>
       </div>
-      <?php
-      if ($faqs->exists(true)) {
-        echo '<div class="panel-body text-muted">'.sprintf(__('%d FAQs matched your search criteria.'),
-            $faqs->count())
-            .'<ul class="list-group">';
-        foreach ($faqs as $F) {
-            echo sprintf(
-                '<li class="list-group-item"><a href="faq.php?id=%d" class="previewfaq">%s</a></li>',
-                $F->getId(), $F->getLocalQuestion(), $F->getVisibilityDescription());
-        }
-        echo '</ul>';
-      } else {
-        echo '<div class="panel-body text-muted">'.__('The search did not match any FAQs.').'</div>';
-      }?>
+      <div class="body">
+        <?php
+        if ($faqs->exists(true)) { ?>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <?php echo __('FAQs que coinciden con tu criterio de busqueda.'); ?> 
+              <span class="badge bg-pink"><?php echo $faqs->count(); ?></span>
+            </li>  
+          <?php foreach ($faqs as $F) {
+              echo sprintf(
+                  '<li class="list-group-item"><a href="faq.php?id=%d" class="previewfaq">%s</a></li>',
+                  $F->getId(), $F->getLocalQuestion(), $F->getVisibilityDescription());
+            }
+          echo '</ul>';
+        } else {
+          echo __('The search did not match any FAQs.');
+        }?>
+      </div>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-4">
-    <div class="sidebar">
-      <div class="searchbar">
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <!--<div class="searchbar">
         <form method="get" action="faq.php">
           <input type="hidden" name="a" value="search"/>
           <input class="form-control" type="text" name="q" class="search" placeholder="<?php
@@ -31,8 +37,8 @@
           <input type="submit" style="display:none" value="search"/>
         </form>
       </div>
-      <br/>
-      <div class="content clearfix">
+      <br/>-->
+      <div class="body">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title"><?php echo __('Help Topics'); ?></h3>
