@@ -25,22 +25,28 @@ require(CLIENTINC_DIR.'header.inc.php');
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
-            <div class="header">
-                <h1>
-                    Bienvenido al Centro de soporte
-                </h1>
-            </div>
-            <div class="body">
-                <p class="lead">
-                    Este panel esta hecho para la atención de parte del team RedHawk con sus seguidores. Brindandoles a su alcance herramientas que les ayuden en lo que buscan mejorar en sus moviles.
-                </p>
-                <p>
-                    RedHawkLab pretende ser una plataforma para gestionar mejor las peticiones de soporte que diariamente llegan a nuestra web en facebook, obteniendo mejoras tales como un mejor orden en la forma de atencion e informar como van las peticiones realizadas. Este proyecto es gratis y no contiene ningun tipo de ganancia para el team.
-                </p>
-                <p>
-                    Nosotros simplemente ofrecemos este tipo de ayuda, soporte, para nuestra propia mejora de conocimientos por eso a su vez se pide la paciencia por la atención de sus peticiones, tambien queda claro que nosotros no pertenecemos a ninguna compañia ni provedora de servicios y deja en claro que al hacer cualquier modificación a su movil esta pierda la garantia de compañia y/o fabrica, todo esto solo sabiendo que es bajo su propia voluntad ajustar dichos cambios.
-                </p>
-            </div>
+            <?php if($cfg && ($page = $cfg->getLandingPage())) {
+                echo '<div class="body">'; 
+                echo $page->getBodyWithImages();
+                echo '<div>';
+                 }else{ ?>
+                <div class="header">
+                    <h1>
+                        Bienvenido al Centro de soporte
+                    </h1>
+                </div>
+                <div class="body">
+                    <p class="lead">
+                        Este panel esta hecho para la atención de parte del team RedHawk con sus seguidores. Brindandoles a su alcance herramientas que les ayuden en lo que buscan mejorar en sus moviles.
+                    </p>
+                    <p>
+                        RedHawkLab pretende ser una plataforma para gestionar mejor las peticiones de soporte que diariamente llegan a nuestra web en facebook, obteniendo mejoras tales como un mejor orden en la forma de atencion e informar como van las peticiones realizadas. Este proyecto es gratis y no contiene ningun tipo de ganancia para el team.
+                    </p>
+                    <p>
+                        Nosotros simplemente ofrecemos este tipo de ayuda, soporte, para nuestra propia mejora de conocimientos por eso a su vez se pide la paciencia por la atención de sus peticiones, tambien queda claro que nosotros no pertenecemos a ninguna compañia ni provedora de servicios y deja en claro que al hacer cualquier modificación a su movil esta pierda la garantia de compañia y/o fabrica, todo esto solo sabiendo que es bajo su propia voluntad ajustar dichos cambios.
+                    </p>
+                </div>
+            <?php } ?>
         </div>
      </div>
 </div>
