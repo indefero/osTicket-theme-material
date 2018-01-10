@@ -53,9 +53,9 @@ if(!defined('OSTCLIENTINC') || !$category || !$category->isPublic()) die('Access
                         </div>
                     </form>
                 </div>-->
-            <div class="panel panel-primary">
-                <div class="panel-heading"><?php echo __('Help Topics'); ?></div>
-                <div class="panel-body">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><?php echo __('Help Topics'); ?></div>
+                    <div class="panel-body">
                     <?php
                     foreach (Topic::objects()
                         ->filter(array('faqs__faq__category__category_id'=>$category->getId()))
@@ -63,6 +63,7 @@ if(!defined('OSTCLIENTINC') || !$category || !$category->isPublic()) die('Access
                             <a href="?topicId=<?php echo urlencode($t->getId()); ?>"
                             ><?php echo $t->getFullName(); ?></a>
                     <?php } ?>
+                    </div>
                 </div>
             </div>
         </div>
