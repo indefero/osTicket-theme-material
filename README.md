@@ -6,10 +6,10 @@ Material Theme para OsTicket v1.10.1
 
 # Captures
 * Home page
-![alt text](https://raw.githubusercontent.com/luffynando/Material-Theme-OsTicket-FrontEnd/master/Docs/Material-Front-index.png)
+![alt text](https://raw.githubusercontent.com/luffynando/Material-Theme-OsTicket-FrontEnd/master/Docs/Material-Front-index.PNG)
 
 * Login page
-![alt text](https://raw.githubusercontent.com/luffynando/Material-Theme-OsTicket-FrontEnd/master/Docs/Material-Login.png)
+![alt text](https://raw.githubusercontent.com/luffynando/Material-Theme-OsTicket-FrontEnd/master/Docs/Material-Login.PNG)
 
 * Custom chooser Skin
-![alt text](https://raw.githubusercontent.com/luffynando/Material-Theme-OsTicket-FrontEnd/master/Docs/Material-Front-SideBar-Skins.png)
+![alt text](https://raw.githubusercontent.com/luffynando/Material-Theme-OsTicket-FrontEnd/master/Docs/Material-Front-SideBar-Skins.PNG)
