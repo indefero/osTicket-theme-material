@@ -74,11 +74,11 @@ $(document).ready(function(){
 			                </label>
                             <br>
                             <?php
-                            //if ($field->get('hint')) { ?>
-                                <!--em style="color:gray;display:inline-block"><?php
-                                //echo Format::viewableImages($field->getLocal('hint')); ?></em>-->
+                            if ($field->get('hint')) { ?>
+                                <em style="color:gray;display:inline-block"><?php
+                                echo Format::viewableImages($field->getLocal('hint')); ?></em>-->
 						
-                                <?php   // } ?>
+                                <?php    } ?>
                         <?php   }   
                         //Renders Forms?>
                         <?php

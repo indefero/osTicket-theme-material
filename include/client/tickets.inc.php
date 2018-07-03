@@ -113,6 +113,7 @@ $tickets->values(
 );
 ?>
 
+
 <div class="row ">
 	<div class="col-md-12" >
 	<form action="tickets.php" method="get" id="ticketSearchForm">
@@ -134,7 +135,7 @@ $tickets->values(
 			<h4 style="color: #337ab7;"><?php echo __('Help Topic'); ?>:</h4>
 		</div>
 		<div class="col-md-4">
-			<select name="topic_id" class="nowarn form-control" " onchange="javascript: this.form.submit(); ">
+			<select name="topic_id" class="nowarn form-control" onchange="javascript: this.form.submit(); ">
 				<option value="">&mdash; <?php echo __('All Help Topics');?> &mdash;</option>
 		<?php foreach (Topic::getHelpTopics(true) as $id=>$name) {
 				$count = $thisclient->getNumTopicTickets($id);
